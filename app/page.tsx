@@ -324,8 +324,8 @@ export default function Home() {
             <div><b>성찰</b><span>헌신뿐 아니라 시대의 한계와 논쟁도 정직하게 다룹니다.</span></div>
             <div><b>응답</b><span>세계와 이웃, 디지털 공간을 향한 오늘의 선교를 묻습니다.</span></div>
           </div>
-          <a className="line-button" href="#sources">
-            선교 기록 살펴보기 <span>→</span>
+          <a className="line-button" href="/mission/foreigners-to-joseon.html">
+            전체 기록 읽기 <span>→</span>
           </a>
         </div>
       </section>
@@ -459,6 +459,12 @@ export default function Home() {
 
       <footer className="site-footer">
         <div className="footer-brand"><strong>BNB LAB</strong><span>BIBLE · REVIVAL · MISSION · TECHNOLOGY</span></div>
+        <address className="footer-contact">
+          <span>대표 한동훈</span>
+          <a href="tel:01055003699">H.P 010-5500-3699</a>
+          <a href="mailto:exodus0510@naver.com">exodus0510@naver.com</a>
+          <a href="https://www.threads.com/@exodus0510" target="_blank" rel="noreferrer">threads.com/@exodus0510 ↗</a>
+        </address>
         <div className="footer-links">
           <a href="#about">소개</a><a href="#archive">부흥 아카이브</a>
           <a href="#bible">성경 연구</a><a href="#mission">선교</a>
