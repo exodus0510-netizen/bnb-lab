@@ -69,6 +69,31 @@ const archiveItems = [
   },
 ];
 
+const galleryCategories = [
+  { key: "revival", label: "부흥" },
+  { key: "mission", label: "선교" },
+  { key: "bible", label: "성경" },
+  { key: "technology", label: "기술" },
+];
+
+const galleryItems = [
+  { category: "revival", year: "1857", title: "제러마이어 램피어", image: "/archive/fulton-lanphier.jpg", source: "https://commons.wikimedia.org/wiki/File:Jeremiah_Calvin_Lanphier.jpg", credit: "PUBLIC DOMAIN" },
+  { category: "revival", year: "1904", title: "에번 로버츠", image: "/archive/wales-evan-roberts.jpg", source: "https://commons.wikimedia.org/wiki/File:Evan_Roberts_(5294057).jpg", credit: "NATIONAL LIBRARY OF WALES" },
+  { category: "revival", year: "1906", title: "아주사 스트리트 선교회", image: "/archive/azusa-mission.jpg", source: "https://commons.wikimedia.org/wiki/File:Apostolic_Faith_Gospel_Mission_1906.jpg", credit: "PUBLIC DOMAIN" },
+  { category: "revival", year: "1907", title: "평양 장대현교회", image: "/archive/pyongyang-jangdaehyun.jpg", source: "https://commons.wikimedia.org/wiki/File:Jangdaehyun_Church.jpg", credit: "HISTORICAL ARCHIVE" },
+  { category: "mission", year: "1885", title: "호러스 G. 언더우드", image: "/gallery/mission-underwood.jpg", source: "https://commons.wikimedia.org/wiki/File:Horace_Grant_Underwood.jpg", credit: "PUBLIC DOMAIN" },
+  { category: "mission", year: "1901", title: "헨리 G. 아펜젤러", image: "/gallery/mission-appenzeller.jpg", source: "https://commons.wikimedia.org/wiki/File:A_Modern_Pioneer_in_Korea_-_Henry_Gerhart_Appenzeller,_1901.jpg", credit: "PUBLIC DOMAIN" },
+  { category: "mission", year: "1890s", title: "로제타 셔우드 홀", image: "/gallery/mission-rosetta-hall.jpg", source: "https://commons.wikimedia.org/wiki/File:Dr._Rosetta_S._Hall.jpg", credit: "PUBLIC DOMAIN" },
+  { category: "mission", year: "1885", title: "제중원", image: "/gallery/mission-jejungwon.jpg", source: "https://commons.wikimedia.org/wiki/File:Jejungwon.jpg", credit: "PUBLIC DOMAIN" },
+  { category: "mission", year: "1900s", title: "한성 서대문 밖 풍경", image: "/gallery/mission-seoul-west-gate.jpg", source: "https://commons.wikimedia.org/wiki/File:WestGate_of_Seoul_1900s.jpg", credit: "PUBLIC DOMAIN" },
+  { category: "bible", year: "1882", title: "최초의 한글 누가복음", image: "/archive/first-korean-luke.jpg", source: "https://commons.wikimedia.org/wiki/File:%EC%98%88%EC%88%98%EC%85%A9%EA%B5%90%EB%88%84%EA%B0%80%EB%B3%B5%EC%9D%8C%EC%A0%BC%EC%85%94.pdf", credit: "PUBLIC DOMAIN" },
+  { category: "bible", year: "4C", title: "시내 사본 마태복음", image: "/gallery/bible-codex-sinaiticus.jpg", source: "https://commons.wikimedia.org/wiki/File:Codex_Sinaiticus_Matthew_1,1-2,5.JPG", credit: "PUBLIC DOMAIN" },
+  { category: "bible", year: "1450s", title: "구텐베르크 성경", image: "/gallery/bible-gutenberg.jpg", source: "https://commons.wikimedia.org/wiki/File:Bible_de_Gutenberg,_copie_de_la_BNF_Res_A71-(2).jpg", credit: "CC0" },
+  { category: "technology", year: "1940s", title: "초기 전자식 컴퓨터 ENIAC", image: "/gallery/tech-eniac.jpg", source: "https://commons.wikimedia.org/wiki/File:Eniac_Aberdeen.jpg", credit: "PUBLIC DOMAIN" },
+  { category: "technology", year: "1969", title: "아폴로 소프트웨어와 마거릿 해밀턴", image: "/gallery/tech-margaret-hamilton.jpg", source: "https://commons.wikimedia.org/wiki/File:Margaret_Hamilton_-_restoration.jpg", credit: "NASA · PUBLIC DOMAIN" },
+  { category: "technology", year: "2024", title: "NASA 인공지능 타운홀", image: "/gallery/tech-nasa-ai.jpg", source: "https://commons.wikimedia.org/wiki/File:NASA_Artificial_Intelligence_(AI)_Town_Hall_(NHQ202405220001).jpg", credit: "NASA · PUBLIC DOMAIN" },
+];
+
 const researchCards = [
   {
     label: "BIBLE & HISTORY",
@@ -98,7 +123,9 @@ const researchCards = [
 
 export default function Home() {
   const [activeArchive, setActiveArchive] = useState(3);
+  const [activeGallery, setActiveGallery] = useState("mission");
   const item = archiveItems[activeArchive];
+  const visibleGallery = galleryItems.filter((entry) => entry.category === activeGallery);
 
   return (
     <main>
@@ -116,6 +143,7 @@ export default function Home() {
           <a href="#archive">부흥 아카이브</a>
           <a href="#bible">성경 연구</a>
           <a href="#mission">선교</a>
+          <a href="#gallery">자료실</a>
           <a href="#technology">AI와 하나님 나라</a>
         </nav>
 
@@ -130,6 +158,7 @@ export default function Home() {
             <a href="#archive">부흥 아카이브</a>
             <a href="#bible">성경 연구</a>
             <a href="#mission">선교</a>
+            <a href="#gallery">자료실</a>
             <a href="#technology">AI와 하나님 나라</a>
           </div>
         </details>
@@ -324,16 +353,31 @@ export default function Home() {
             <div><b>성찰</b><span>헌신뿐 아니라 시대의 한계와 논쟁도 정직하게 다룹니다.</span></div>
             <div><b>응답</b><span>세계와 이웃, 디지털 공간을 향한 오늘의 선교를 묻습니다.</span></div>
           </div>
-          <a className="line-button" href="/mission/foreigners-to-joseon.html">
-            전체 기록 읽기 <span>→</span>
+          <a className="mission-archive-cta" href="/mission/foreigners-to-joseon.html">
+            <img src="/gallery/mission-underwood.jpg" alt="" />
+            <span><small>MISSIONARY ARCHIVE 01</small><b>조선을 찾아온 외국인들<br />전체 기록 읽기</b></span>
+            <i>→</i>
           </a>
+        </div>
+      </section>
+
+      <section className="gallery-section" id="gallery">
+        <div className="gallery-heading">
+          <div><div className="section-number">04 — DIGITAL COLLECTION</div><p className="kicker">BNB Lab 자료실</p><h2>기록을 읽고,<br /><span>이미지로 만납니다.</span></h2></div>
+          <p>부흥의 현장, 조선을 찾은 선교사, 성경 고문서와 기술의 역사를 공개 아카이브 자료로 살펴봅니다. 사진을 누르면 원본과 이용 조건을 확인할 수 있습니다.</p>
+        </div>
+        <div className="gallery-tabs" role="tablist" aria-label="자료실 분류">
+          {galleryCategories.map((category) => <button key={category.key} type="button" className={activeGallery === category.key ? "active" : ""} onClick={() => setActiveGallery(category.key)} role="tab" aria-selected={activeGallery === category.key}><span>{category.label}</span><small>{String(galleryItems.filter((entry) => entry.category === category.key).length).padStart(2,"0")}</small></button>)}
+        </div>
+        <div className="gallery-grid">
+          {visibleGallery.map((entry, index) => <a className={index === 0 ? "gallery-card featured" : "gallery-card"} href={entry.source} target="_blank" rel="noreferrer" key={entry.title}><div><img src={entry.image} alt={entry.title} /></div><p><span>{entry.year}</span><b>{entry.title}</b><small>{entry.credit} ↗</small></p></a>)}
         </div>
       </section>
 
       <section className="bible-section" id="bible">
         <div className="bible-intro">
           <div>
-            <div className="section-number">04 — BIBLE RESEARCH</div>
+            <div className="section-number">05 — BIBLE RESEARCH</div>
             <p className="kicker">말씀에서 시작하는 연구</p>
             <h2>역사와 기술을<br />해석하는 기준은<br /><span>말씀입니다.</span></h2>
           </div>
@@ -383,7 +427,7 @@ export default function Home() {
           </div>
         </div>
         <div className="tech-copy">
-          <div className="section-number">05 — AI & TECHNOLOGY</div>
+          <div className="section-number">06 — AI & TECHNOLOGY</div>
           <p className="kicker">기술 청지기직</p>
           <h2>AI는 목적이 아니라,<br /><span>우리에게 맡겨진 도구입니다.</span></h2>
           <p>
@@ -405,7 +449,7 @@ export default function Home() {
       <section className="sources-section" id="sources">
         <div className="sources-heading">
           <div>
-            <div className="section-number">06 — SOURCES & NOTES</div>
+            <div className="section-number">07 — SOURCES & NOTES</div>
             <p className="kicker">자료와 출처</p>
             <h2>기록의 출처를<br />투명하게 남깁니다.</h2>
           </div>
@@ -468,6 +512,7 @@ export default function Home() {
         <div className="footer-links">
           <a href="#about">소개</a><a href="#archive">부흥 아카이브</a>
           <a href="#bible">성경 연구</a><a href="#mission">선교</a>
+          <a href="#gallery">자료실</a>
           <a href="#technology">AI와 하나님 나라</a>
         </div>
         <p>© 2026 BNB LAB · THE GOSPEL REMEMBERED</p>
