@@ -63,6 +63,11 @@ git push -u origin main
 
 설정을 저장한 뒤 `Retry build`를 누릅니다.
 
+`Could not resolve "./.openai/hosting.json"` 오류가 나오면 점으로 시작하는
+`.openai` 폴더가 GitHub 업로드 과정에서 빠진 것입니다. v3 이후 프로젝트는
+이 숨김 파일 없이도 빌드되도록 수정되었으므로 최신 압축파일의
+`vite.config.ts`와 `package.json`을 GitHub에 다시 올린 뒤 새 커밋을 만듭니다.
+
 ## 주요 파일 위치
 
 - 메인 홈페이지: `app/page.tsx`
