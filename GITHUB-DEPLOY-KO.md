@@ -38,17 +38,30 @@ git push -u origin main
 
 `사용자아이디`는 본인의 GitHub 아이디로 바꿉니다.
 
-## 4. Cloudflare Pages로 연결하기
+## 4. Cloudflare Workers Builds로 연결하기
 
-현재 프로젝트는 React 기반이므로 GitHub Pages보다 Cloudflare Pages 또는 별도의 Node/Worker 호스팅이 적합합니다.
+현재 프로젝트는 React/Vinext 기반이므로 GitHub Pages보다 Cloudflare Workers Builds가 적합합니다.
 
 1. [Cloudflare Dashboard](https://dash.cloudflare.com)에 로그인합니다.
-2. `Workers & Pages` → `Create` → `Pages` → `Connect to Git`을 선택합니다.
+2. `Workers & Pages`에서 GitHub 저장소 연결 방식으로 새 Worker를 만듭니다.
 3. GitHub 계정을 연결하고 `bnb-lab` 저장소를 선택합니다.
-4. Framework preset은 우선 `None`으로 둡니다.
-5. 이 프로젝트는 Vinext/Cloudflare Worker 구성이 포함되어 있으므로, 실제 배포 단계에서는 저장소의 `package.json`과 `.openai/hosting.json` 설정에 맞춘 빌드 구성이 필요합니다.
+4. 빌드 명령에는 `npm run build:cloudflare`를 입력합니다.
+5. 배포 명령에는 `npm run deploy:cloudflare`를 입력합니다.
+6. 루트 디렉터리는 `/`로 둡니다.
 
-Cloudflare에서 단순 정적 사이트로 운영하려면 별도의 정적 내보내기 작업이 필요합니다. 현재 제공된 프로젝트 소스는 사이트의 디자인과 기능을 보존하기 위한 원본입니다.
+이 명령은 Vinext 빌드 결과를 `dist` 폴더에 만든 뒤, 생성된 `dist/server/wrangler.json` 설정으로 Worker와 사진·CSS·HTML 자산을 함께 배포합니다.
+
+## Cloudflare 빌드 오류 해결
+
+`scripts/build-verified.sh: 해당 파일 또는 디렉터리가 없습니다`라는 메시지가 나오면 기존 `npm run build` 명령을 사용하고 있기 때문입니다. Cloudflare의 빌드 설정을 아래처럼 바꿉니다.
+
+```text
+빌드 명령: npm run build:cloudflare
+배포 명령: npm run deploy:cloudflare
+루트 디렉터리: /
+```
+
+설정을 저장한 뒤 `Retry build`를 누릅니다.
 
 ## 주요 파일 위치
 
