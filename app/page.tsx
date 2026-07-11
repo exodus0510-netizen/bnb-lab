@@ -72,8 +72,8 @@ const archiveItems = [
 const galleryCategories = [
   { key: "revival", label: "부흥" },
   { key: "mission", label: "선교" },
-  { key: "bible", label: "성경" },
-  { key: "technology", label: "기술" },
+  { key: "bible", label: "말씀" },
+  { key: "technology", label: "문화" },
 ];
 
 const galleryItems = [
@@ -102,6 +102,7 @@ const researchCards = [
     description:
       "창세기의 세계와 고대 근동 문명을 함께 살피며, 성경이 전하는 창조와 인간의 이야기를 읽습니다.",
     meta: "입문 · 12분 읽기",
+    href: "/study/genesis-and-ancient-civilizations.html",
   },
   {
     label: "KINGDOM OF GOD",
@@ -110,6 +111,7 @@ const researchCards = [
     description:
       "창조에서 새 창조까지 이어지는 하나님 나라의 큰 흐름 안에서 교회와 선교의 자리를 묻습니다.",
     meta: "연재 · 성경신학",
+    href: "/study/kingdom-of-god.html",
   },
   {
     label: "REVIVAL & SCRIPTURE",
@@ -118,6 +120,7 @@ const researchCards = [
     description:
       "현상과 숫자를 넘어 회개, 화해, 공동체와 선교의 열매를 성경의 기준으로 분별합니다.",
     meta: "심화 · 연구 노트",
+    href: "/study/reading-revival-biblically.html",
   },
 ];
 
@@ -141,10 +144,10 @@ export default function Home() {
         <nav className="desktop-nav" aria-label="주요 메뉴">
           <a href="#about">소개</a>
           <a href="#archive">부흥 아카이브</a>
-          <a href="#bible">성경 연구</a>
+          <a href="#bible">말씀 연구</a>
           <a href="#mission">선교</a>
           <a href="#gallery">자료실</a>
-          <a href="#technology">AI와 하나님 나라</a>
+          <a href="#technology">문화와 하나님 나라</a>
         </nav>
 
         <a className="header-cta" href="#together">
@@ -156,10 +159,10 @@ export default function Home() {
           <div>
             <a href="#about">소개</a>
             <a href="#archive">부흥 아카이브</a>
-            <a href="#bible">성경 연구</a>
+            <a href="#bible">말씀 연구</a>
             <a href="#mission">선교</a>
             <a href="#gallery">자료실</a>
-            <a href="#technology">AI와 하나님 나라</a>
+            <a href="#technology">문화와 하나님 나라</a>
           </div>
         </details>
       </header>
@@ -176,8 +179,8 @@ export default function Home() {
             다음 시대로 잇습니다.
           </h1>
           <p className="hero-description">
-            성경을 깊이 연구하고, 역사 속 부흥과 선교의 기록을 보존하며,
-            오늘의 기술을 하나님 나라를 위해 사용하는 길을 탐구합니다.
+            말씀을 깊이 연구하고, 역사 속 부흥과 선교의 기록을 보존하며,
+            오늘의 문화를 하나님 나라의 관점으로 읽는 길을 탐구합니다.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#archive">
@@ -235,22 +238,26 @@ export default function Home() {
           </p>
         </div>
         <div className="framework" aria-label="BNB Lab 사역의 네 방향">
-          <article>
+          <a className="framework-card" href="/category/word.html" aria-label="말씀 자세히 보기">
             <span>FOUNDATION</span><b>01</b>
-            <h3>성경</h3><p>우리는 말씀에서 시작합니다.</p>
-          </article>
-          <article>
+            <h3>말씀</h3><p>우리는 말씀에서 시작합니다.</p>
+            <span className="detail-button">자세히 보러가기 <i>→</i></span>
+          </a>
+          <a className="framework-card" href="/category/revival.html" aria-label="부흥 자세히 보기">
             <span>MEMORY</span><b>02</b>
             <h3>부흥</h3><p>하나님이 일하신 역사를 기억합니다.</p>
-          </article>
-          <article>
+            <span className="detail-button">자세히 보러가기 <i>→</i></span>
+          </a>
+          <a className="framework-card" href="/category/mission.html" aria-label="선교 자세히 보기">
             <span>RESPONSE</span><b>03</b>
             <h3>선교</h3><p>받은 복음을 다시 흘려보냅니다.</p>
-          </article>
-          <article>
-            <span>TOOL</span><b>04</b>
-            <h3>기술</h3><p>오늘의 기술을 책임 있게 사용합니다.</p>
-          </article>
+            <span className="detail-button">자세히 보러가기 <i>→</i></span>
+          </a>
+          <a className="framework-card" href="/category/culture.html" aria-label="문화 자세히 보기">
+            <span>CONTEXT</span><b>04</b>
+            <h3>문화</h3><p>시대의 문화를 말씀으로 분별합니다.</p>
+            <span className="detail-button">자세히 보러가기 <i>→</i></span>
+          </a>
         </div>
       </section>
 
@@ -364,7 +371,7 @@ export default function Home() {
       <section className="gallery-section" id="gallery">
         <div className="gallery-heading">
           <div><div className="section-number">04 — DIGITAL COLLECTION</div><p className="kicker">BNB Lab 자료실</p><h2>기록을 읽고,<br /><span>이미지로 만납니다.</span></h2></div>
-          <p>부흥의 현장, 조선을 찾은 선교사, 성경 고문서와 기술의 역사를 공개 아카이브 자료로 살펴봅니다. 사진을 누르면 원본과 이용 조건을 확인할 수 있습니다.</p>
+          <p>부흥의 현장, 조선을 찾은 선교사, 말씀의 고문서와 시대 문화를 공개 아카이브 자료로 살펴봅니다. 사진을 누르면 원본과 이용 조건을 확인할 수 있습니다.</p>
         </div>
         <div className="gallery-tabs" role="tablist" aria-label="자료실 분류">
           {galleryCategories.map((category) => <button key={category.key} type="button" className={activeGallery === category.key ? "active" : ""} onClick={() => setActiveGallery(category.key)} role="tab" aria-selected={activeGallery === category.key}><span>{category.label}</span><small>{String(galleryItems.filter((entry) => entry.category === category.key).length).padStart(2,"0")}</small></button>)}
@@ -379,7 +386,7 @@ export default function Home() {
           <div>
             <div className="section-number">05 — BIBLE RESEARCH</div>
             <p className="kicker">말씀에서 시작하는 연구</p>
-            <h2>역사와 기술을<br />해석하는 기준은<br /><span>말씀입니다.</span></h2>
+            <h2>역사와 문화를<br />해석하는 기준은<br /><span>말씀입니다.</span></h2>
           </div>
           <div className="bible-document">
             <div className="document-frame">
@@ -404,12 +411,12 @@ export default function Home() {
 
         <div className="research-grid">
           {researchCards.map((card) => (
-            <article key={card.number}>
+            <a className="research-card" href={card.href} key={card.number}>
               <div className="research-top"><span>{card.label}</span><b>{card.number}</b></div>
               <h3>{card.title}</h3>
               <p>{card.description}</p>
-              <div className="research-meta"><span>{card.meta}</span><i>↗</i></div>
-            </article>
+              <div className="research-meta"><span>{card.meta}</span><i>자세히 보러가기 →</i></div>
+            </a>
           ))}
         </div>
       </section>
@@ -421,19 +428,19 @@ export default function Home() {
           <span className="tech-cross cross-one">+</span>
           <span className="tech-cross cross-two">+</span>
           <div className="tech-center">
-            <small>TECHNOLOGY</small>
+            <small>CULTURE</small>
             <b>×</b>
             <small>KINGDOM</small>
           </div>
         </div>
         <div className="tech-copy">
-          <div className="section-number">06 — AI & TECHNOLOGY</div>
-          <p className="kicker">기술 청지기직</p>
-          <h2>AI는 목적이 아니라,<br /><span>우리에게 맡겨진 도구입니다.</span></h2>
+          <div className="section-number">06 — FAITH & CULTURE</div>
+          <p className="kicker">문화와 기술의 청지기직</p>
+          <h2>문화를 외면하지 않고,<br /><span>말씀으로 분별합니다.</span></h2>
           <p>
-            무엇을 할 수 있는지만 묻지 않습니다. 무엇을 위해, 누구를 위해,
-            어떤 책임 아래 사용해야 하는지를 먼저 묻습니다. 성경 교육, 선교
-            콘텐츠, 역사 보존과 다음 세대 소통에 AI를 책임 있게 활용합니다.
+            예술과 미디어, 과학과 AI를 신앙과 분리하지 않습니다. 무엇을 위해,
+            누구를 위해, 어떤 책임 아래 사용할지를 묻고 말씀 교육과 선교,
+            역사 보존과 다음 세대 소통을 위해 책임 있게 활용합니다.
           </p>
           <div className="tech-values">
             <article><b>01</b><h3>Truth</h3><p>출처를 밝히고 사실을 검증합니다.</p></article>
@@ -441,7 +448,7 @@ export default function Home() {
             <article><b>03</b><h3>Mission</h3><p>효율보다 하나님 나라의 목적을 먼저 묻습니다.</p></article>
           </div>
           <a className="line-button light-button" href="#sources">
-            AI 활용 원칙 읽기 <span>→</span>
+            문화와 신앙의 원칙 읽기 <span>→</span>
           </a>
         </div>
       </section>
@@ -502,7 +509,7 @@ export default function Home() {
       </section>
 
       <footer className="site-footer">
-        <div className="footer-brand"><strong>BNB LAB</strong><span>BIBLE · REVIVAL · MISSION · TECHNOLOGY</span></div>
+        <div className="footer-brand"><strong>BNB LAB</strong><span>WORD · REVIVAL · MISSION · CHURCH</span></div>
         <address className="footer-contact">
           <span>대표 한동훈</span>
           <a href="tel:01055003699">H.P 010-5500-3699</a>
@@ -511,9 +518,9 @@ export default function Home() {
         </address>
         <div className="footer-links">
           <a href="#about">소개</a><a href="#archive">부흥 아카이브</a>
-          <a href="#bible">성경 연구</a><a href="#mission">선교</a>
+          <a href="#bible">말씀 연구</a><a href="#mission">선교</a>
           <a href="#gallery">자료실</a>
-          <a href="#technology">AI와 하나님 나라</a>
+          <a href="#technology">문화와 하나님 나라</a>
         </div>
         <p>© 2026 BNB LAB · THE GOSPEL REMEMBERED</p>
       </footer>
