@@ -1,0 +1,12 @@
+.category-feature { margin: 0 0 50px; }
+.category-feature > a { background: #c9bdab; display: block; height: 430px; overflow: hidden; position: relative; }
+.category-feature img { filter: grayscale(.6) sepia(.13); height: 100%; object-fit: cover; transition: filter .35s, transform .5s; width: 100%; }
+.category-feature > a:hover img { filter: grayscale(.05) sepia(.03); transform: scale(1.025); }
+.category-feature figcaption { background: var(--forest); color: #c6d2cf; font-size: 10px; line-height: 1.7; padding: 15px 18px; }
+.category-feature figcaption b { color: #fff; display: block; font-family: "Noto Serif KR", serif; font-size: 16px; font-weight: 400; margin-bottom: 4px; }
+.category-feature figcaption span { color: #d98b65; font-size: 8px; letter-spacing: .09em; }
+.category-feature.word img { object-position: center 20%; }
+.category-feature.revival img { object-position: center center; }
+.category-feature.mission img { object-position: center 18%; }
+.category-feature.culture img { object-position: center 24%; }
+@media (max-width: 780px) { .category-feature > a { height: 300px; } }
